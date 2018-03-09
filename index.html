@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Classroom Escape</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="icon"
+      type="image/png"
+      href="http://atroposescape.es/wp-content/uploads/2017/12/Icono-Interrogante_Rojo.png">
+	<link rel="stylesheet" type="text/css" href="style/Normalize.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="style/estilo.css">
+
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
+
+	<!-- Juan -->
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- Juan -->
+
+	<script type="text/javascript" src="js/reloj.js"></script>
+	<script type="text/javascript" src="js/countdowntimer.js"></script>
+
+</head>
+<body class="container-fluid">
+
+
+
+<!-- Parte Javi, Popup de inicio -->
+	<div class='popup'>
+		<div class='cnt223 text-center'>
+			<div>
+				<img id="logoJuego" src="http://atroposescape.es/wp-content/uploads/2017/12/Icono-Interrogante_Rojo.png">
+				<h1>Classroom Escape</h1>
+			</div>
+			<hr>
+			<h2>Cómo jugar</h2>
+			<p>
+				En esta oficina se encuentran ubicados <strong>7 elementos</strong>
+				que nos facilitan el acceso a la información.
+				Búscalos y acierta las preguntas para conseguir el elemento.
+				¡Encuentra y responde correctamente a las preguntas <strong> cuanto antes</strong>!
+		</p>
+
+					<h2>Reglas del juego</h2>
+					<div class="imgstart">
+						<img src="images/lupa.png" alt="">
+					</div id="reglas">
+					<ol class="text-left" >
+						<li>Encontrar los <b>7 objetos ocultos</b> en la oficina</li>
+						<li>Mueve la <b>lupa</b> para buscar <b>pistas</b></li>
+						<li>Cada pregunta incorrecta te restará 1 vida</li>
+						<li>Tienes <b>5 minutos</b> para encontrar los <b>7</b> objetos ocultos</li>
+					</ol>
+
+					<br/>
+					<h2>Tu nombre</h2>
+					<span id="avisoNombre" style="color: red">*El nombre no puede estar <b>vacío</b> ni ocupar más de <b>27</b> caracteres</span><br>
+					<input type="text" class="usuario" id="usuario"><br><br>
+					<button type="button" class="btn btn-primary cerrar start" id="iniciarJuego">Comenzar</button>
+
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10 col-xs-12">
+
+				<div id="popup" style="display: none;">
+					<div class="content-popup">
+						<div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
+						<div>
+							<h2>Contenido POPUP</h2>
+							...
+						</div>
+					</div>
+				</div>
+									<div class='popup-pc otroPopup' style="display: none;">
+										<div class='cnt223 text-center'>
+											<h4 class="text-center" id="tituloPopup"></h4><br>
+											<p id="preguntas-pc"></p>
+											<div id="opciones-pc">
+											</div>
+										</div>
+									</div>
+
+<!-- Fin Javi, Popup de inicio -->
+
+				<div class="img" style="background-image: url('images/bg_ScapeRoom.jpg');">
+					<div class="item" id="pc">pc</div>
+					<div class="item" id="libro">libro</div>
+					<div class="item" id="movil">movil</div>
+					<div class="item" id="router">router</div>
+					<div class="item" id="cable">cable</div>
+					<div class="item" id="proveedor">proveedor</div>
+					<div class="item" id="navegador">navegador</div>
+					<div class="" id="lupa">
+						<img src="./images/lupa.png" alt="">
+					</div>
+				</div>
+			</div>
+
+
+<!-- Parte Juan, perfil usuario -->
+			<div class="col-md-2 col-xs-12">
+				<div class="img-gui" style="background-image: url('images/gui-background.jpg');">
+					<div id="perfil" class="rounded">
+						<img src="images/perfil.jpg" class="rounded-circle" alt="perfil" width="100" height="100">
+						<p class="playername"></p>
+					</div>
+
+					<div id="info" class="rounded">
+						<p><strong>Has encontrado</strong></p>
+						<h3 class="display-4"><strong class="text-primary" id="itemsactuales">0</strong><strong class="text-danger">/7</strong></h3><i>items</i><hr>
+						<p><strong>Tiempo</strong></p>
+						<h3 id="cuentaAtras" class="reloj" class="display-4"></h3>
+						<h3 id="tiempoFinal" class="reloj"  class="display-4"></h3>
+					</div>
+
+					<div id="vidas" class="rounded">
+						<p><strong>Vidas restantes</strong></p>
+						<img src="images/vida.png" id="vida1" class="img-responsive" alt="vida" width="50" height="45">
+						<img src="images/vida.png" id="vida2" class="img-responsive" alt="vida" width="50" height="45">
+						<img src="images/vida.png" id="vida3" class="img-responsive" alt="vida" width="50" height="45">
+					</div>
+
+
+					<div id="pista" class="rounded">
+						<p><span class="glyphicon glyphicon-search"><strong class="glyphicon glyphicon-search">Pista de la lupa</strong></span></p>
+						<p id="lapista"></p>
+					</div>
+<!-- Fin Juan, perfil usuario -->
+				</div>
+			</div>
+		</div>
+	</body>
+	</html>
